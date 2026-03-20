@@ -1,22 +1,22 @@
 /**
- * AI Controller - Routes AI requests to service layer
+ * AI Controller - Routes AI requests to Gemini service
  */
 
 const aiService = require("../services/aiService");
 const logger = require("../utils/logger");
 
-// ─── Helper to validate text input ───────────────────────────────────────
+// Helper to validate text
 const validateText = (text, res) => {
   if (!text || typeof text !== "string") {
     res.status(400).json({ error: "Text is required" });
     return false;
   }
-  if (text.trim().length < 5) {
-    res.status(400).json({ error: "Text is too short (minimum 5 characters)" });
+  if (text.trim().length < 3) {
+    res.status(400).json({ error: "Text too short" });
     return false;
   }
   if (text.length > 10000) {
-    res.status(400).json({ error: "Text is too long (maximum 10000 characters)" });
+    res.status(400).json({ error: "Text too long (max 10000 chars)" });
     return false;
   }
   return true;
@@ -27,12 +27,10 @@ const explain = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.explainText(text);
-    logger.info(`AI explain used by ${req.user._id}`);
     res.json({ result, mode: "explain" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -41,12 +39,10 @@ const diagram = async (req, res, next) => {
   try {
     const { text, diagramType } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.generateDiagram(text, diagramType || "flowchart");
-    logger.info(`AI diagram (${diagramType}) used by ${req.user._id}`);
     res.json({ result, mode: "diagram" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -55,11 +51,10 @@ const solve = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.solveText(text);
     res.json({ result, mode: "solve" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -68,11 +63,10 @@ const improve = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.improveText(text);
     res.json({ result, mode: "improve" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -81,11 +75,10 @@ const summarize = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.summarizeText(text);
     res.json({ result, mode: "summarize" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -94,11 +87,10 @@ const bullets = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.toBulletPoints(text);
     res.json({ result, mode: "bullets" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -107,11 +99,10 @@ const extractProblems = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.extractProblems(text);
     res.json({ result, mode: "extract-problems" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -120,11 +111,10 @@ const suggestSolutions = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.suggestSolutions(text);
     res.json({ result, mode: "suggest-solutions" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -133,12 +123,15 @@ const detect = async (req, res, next) => {
   try {
     const { text } = req.body;
     if (!validateText(text, res)) return;
-
     const result = await aiService.detectAndSuggest(text);
     res.json({ result, mode: "detect" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
-module.exports = { explain, diagram, solve, improve, summarize, bullets, extractProblems, suggestSolutions, detect };
+module.exports = {
+  explain, diagram, solve, improve,
+  summarize, bullets, extractProblems,
+  suggestSolutions, detect
+};
