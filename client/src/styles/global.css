@@ -36,7 +36,7 @@
   .tiptap-editor .ProseMirror h1 {
     @apply text-3xl font-display font-bold mb-4 mt-6;
     color: #e8e8f0;
-    background: linear-gradient(135deg, #7c5cfc, #5cfcf0);
+    background: linear-gradient(135deg, #B153D7, #F375C2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -69,15 +69,15 @@
 
   .tiptap-editor .ProseMirror code {
     @apply font-mono text-sm px-1.5 py-0.5 rounded;
-    background: rgba(124, 92, 252, 0.15);
+    background: rgba(177, 83, 215, 0.15);
     color: #c8a8ff;
-    border: 1px solid rgba(124, 92, 252, 0.2);
+    border: 1px solid rgba(177, 83, 215, 0.2);
   }
 
   .tiptap-editor .ProseMirror pre {
     @apply font-mono text-sm p-4 rounded-xl my-4 overflow-x-auto;
     background: #0d0d1a;
-    border: 1px solid rgba(124, 92, 252, 0.2);
+    border: 1px solid rgba(177, 83, 215, 0.2);
     color: #c8a8ff;
   }
 
@@ -108,7 +108,7 @@
   }
   .tiptap-editor .ProseMirror th {
     @apply px-3 py-2 text-left text-sm font-semibold;
-    background: rgba(124, 92, 252, 0.1);
+    background: rgba(177, 83, 215, 0.1);
     border: 1px solid rgba(92, 92, 122, 0.3);
     color: #c8a8ff;
   }
@@ -150,13 +150,13 @@
 .ai-markdown ol { @apply list-decimal list-inside mb-2 space-y-1 text-sm; }
 .ai-markdown code {
   @apply font-mono text-xs px-1 py-0.5 rounded;
-  background: rgba(124, 92, 252, 0.15);
+  background: rgba(177, 83, 215, 0.15);
   color: #c8a8ff;
 }
 .ai-markdown pre {
   @apply font-mono text-xs p-3 rounded-lg my-2 overflow-x-auto;
   background: #0d0d1a;
-  border: 1px solid rgba(124, 92, 252, 0.2);
+  border: 1px solid rgba(177, 83, 215, 0.2);
 }
 .ai-markdown pre code { @apply bg-transparent p-0; }
 .ai-markdown strong { @apply font-semibold; color: #e8e8f0; }
@@ -171,7 +171,7 @@
 .mermaid-container {
   @apply rounded-xl overflow-auto;
   background: #0d0d1a;
-  border: 1px solid rgba(124, 92, 252, 0.2);
+  border: 1px solid rgba(177, 83, 215, 0.2);
 }
 .mermaid-container svg { max-width: 100%; }
 
@@ -185,24 +185,24 @@
   }
 
   .glow-purple {
-    box-shadow: 0 0 20px rgba(124, 92, 252, 0.15),
-                0 0 40px rgba(124, 92, 252, 0.05);
+    box-shadow: 0 0 20px rgba(177, 83, 215, 0.15),
+                0 0 40px rgba(177, 83, 215, 0.05);
   }
 
   .glow-cyan {
-    box-shadow: 0 0 20px rgba(92, 252, 240, 0.15);
+    box-shadow: 0 0 20px rgba(243, 117, 194, 0.15);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #7c5cfc, #5cfcf0);
+    background: linear-gradient(135deg, #B153D7, #F375C2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .border-glow {
-    border: 1px solid rgba(124, 92, 252, 0.4);
-    box-shadow: 0 0 12px rgba(124, 92, 252, 0.1);
+    border: 1px solid rgba(177, 83, 215, 0.4);
+    box-shadow: 0 0 12px rgba(177, 83, 215, 0.1);
   }
 
   .note-card-hover {
@@ -210,7 +210,7 @@
   }
   .note-card-hover:hover {
     transform: translateX(2px);
-    border-color: rgba(124, 92, 252, 0.4);
+    border-color: rgba(177, 83, 215, 0.4);
   }
 }
 
@@ -242,3 +242,5 @@ html.light .glass {
   background: rgba(240, 240, 248, 0.8);
   border: 1px solid rgba(100, 100, 180, 0.15);
 }
+
+
