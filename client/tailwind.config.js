@@ -5,54 +5,34 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'Outfit'", "sans-serif"],
-        mono: ["'JetBrains Mono'", "monospace"],
+        sans:    ["'Outfit'", "sans-serif"],
+        mono:    ["'JetBrains Mono'", "monospace"],
         display: ["'Syne'", "sans-serif"],
       },
       colors: {
         space: {
-          950: "#090912",
+          950: "#07070f",
           900: "#0d0d1a",
-          850: "#11111f",
-          800: "#161625",
-          750: "#1a1a2e",
-          700: "#1e1e3a",
-          600: "#252545",
-          500: "#2d2d5a",
+          850: "#10101e",
+          800: "#141422",
+          750: "#18182c",
+          700: "#1e1e32",
+          600: "#252540",
+          500: "#2e2e50",
         },
         accent: {
-          purple: "#B153D7",  // ← tumhara new color
-          blue:   "#B153D7",  // ← same purple
-          cyan:   "#F375C2",  // ← tumhara new pink
+          purple: "#B153D7",
+          pink:   "#F375C2",
+          blue:   "#B153D7",
+          cyan:   "#F375C2",
           green:  "#5cfca0",
           yellow: "#fcdc5c",
           red:    "#fc5c5c",
-          pink:   "#F375C2",  // ← tumhara new pink
         },
         text: {
-          primary:   "#e8e8f0",
+          primary:   "#eeeef8",
           secondary: "#9898b8",
-          muted:     "#5c5c7a",
-        }
-      },
-      animation: {
-        "slide-in":   "slideIn 0.2s ease-out",
-        "fade-in":    "fadeIn 0.3s ease-out",
-        "pulse-slow": "pulse 3s ease-in-out infinite",
-        "shimmer":    "shimmer 2s linear infinite",
-      },
-      keyframes: {
-        slideIn: {
-          "0%":   { transform: "translateX(-10px)", opacity: 0 },
-          "100%": { transform: "translateX(0)",     opacity: 1 },
-        },
-        fadeIn: {
-          "0%":   { opacity: 0, transform: "translateY(4px)" },
-          "100%": { opacity: 1, transform: "translateY(0)"   },
-        },
-        shimmer: {
-          "0%":   { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0"  },
+          muted:     "#55556e",
         }
       },
     },
